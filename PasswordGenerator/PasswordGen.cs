@@ -133,10 +133,7 @@ namespace PasswordGenerator
             string[] lines = Properties.Resources.words_alpha.Split(new string[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries);
 
             if (manageLengthOfWords)
-            {
-                string[] selectedLengthWords = lines.Where(s => s.Length == lengthOfWords).ToArray();
-                lines = selectedLengthWords;
-            }
+                lines = lines.Where(s => s.Length == lengthOfWords).ToArray();
 
             RandomNumberGenerator rng = RandomNumberGenerator.Create();
             byte[] randomBytes = new byte[4]; // max supported lines for our dictionary is 4,294,967,295
